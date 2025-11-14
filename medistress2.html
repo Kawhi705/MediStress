@@ -1,0 +1,285 @@
+<html>
+<title>MediStress™</title>
+<style>
+body {
+  margin: 0;
+  background:#9999ff;
+
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  width: 420px;
+  height: 740px;
+  background: linear-gradient(to bottom right, purple, #ffe6f0);
+  border: 10px solid #333;
+  border-radius: 35px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #ff7ca0;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 170px;
+  padding: 18px 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.card i {
+  font-size: 38px;
+  color: #e91e63;
+  margin-bottom: 5px;
+}
+
+.card h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.section {
+  display: none;
+  text-align: center;
+  padding: 15px;
+  flex: 1;
+  overflow-y: auto;
+  font-size: 18px;
+}
+
+.section.active {
+  display: block;
+}
+
+button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #d81b60;
+}
+
+#breathing-circle {
+  width: 140px;
+  height: 140px;
+  margin: 30px auto;
+  border-radius: 50%;
+  background-color: rgba(233, 30, 99, 0.3);
+  transition: all 4s ease-in-out;
+}
+
+video, audio {
+  margin-top: 15px;
+  max-width: 95%;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 6px;
+  font-size: 13px;
+  color: #666;
+  background-color: #ffe6f0;
+  margin-top: 80%;
+}
+
+.phone::after {
+  content: "";
+  width: 60px;
+  height: 6px;
+  background: #222;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+</style>
+
+<body>
+
+<div class="phone">
+  <header>MediStress™</header>
+
+  <main id="home">
+    <div class="card" onclick="openSection('breathing')">
+      <i class="fa-solid fa-wind"></i>
+      <h4>Breathing 😮‍💨</h4>
+    
+    </div>
+
+    <div class="card" onclick="openSection('exercises')">
+      <i class="fa-solid fa-person-yoga"></i>
+      <h4>Exercises 💪</h4>
+    </div>
+
+    <div class="card" onclick="openSection('video')">
+      <i class="fa-solid fa-video"></i>
+      <h4>Videos🎥</h4>
+    </div>
+
+    <div class="card" onclick="openSection('audio')">
+      <i class="fa-solid fa-headphones"></i>
+      <h4>Audio📻</h4>
+    </div>
+
+    <div class="card" onclick="openSection('music')">
+      <i class="fa-solid fa-music"></i>
+      <h4>Ambient Music 🎵</h4>
+    </div>
+
+    <div class="card" onclick="openSection('news')">
+      <i class="fa-solid fa-newspaper"></i>
+      <h4>What's New 📰</h4>
+    </div>
+
+    <div class="card" onclick="openSection('apps')">
+      <i class="fa-solid fa-mobile"></i>
+      <h4>More Apps ➕</h4>
+    </div>
+  </main>
+
+
+  <section id="breathing" class="section">
+    <h2>Breathing Exercise</h2>
+    <div id="breathing-circle"></div>
+    <p id="breathing-text">Click "Start" to begin.</p>
+    <button onclick="toggleBreathing()">Start</button><br><br>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+  <section id="exercises" class="section">
+    <h2>Mindful Exercises</h2>
+    <p>Take a few minutes to stretch or do light yoga to release tension.</p>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+
+  <section id="video" class="section">
+    <h2>Guided Video Session</h2>
+   <iframe width="250" height="215" src="https://www.youtube.com/embed/vj0JDwQLof4?si=bgygc8R0fUIPv8v2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   <iframe width="250" height="215" src="https://www.youtube.com/embed/VpHz8Mb13_Y?si=AxH8zKmxEP8ye-W6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br><br>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+
+  <section id="audio" class="section">
+    <h2>Audio Meditation</h2>
+   <iframe width="250" height="215" src="https://www.youtube.com/embed/Jyy0ra2WcQQ?si=5mClZgN94Db10Rfb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br><br>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+
+  <section id="music" class="section">
+    <h2>Ambient Music</h2>
+    <p>Relax and unwind with calming background sounds.</p>
+     <iframe width="250" height="215" src="https://www.youtube.com/embed/DRFHklnN-SM?si=zyD4Ca9jd9igOBR2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br><br>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+  <section id="news" class="section">
+    <h2>See What's New</h2>
+    <p>Fresh mindfulness sessions and soundscapes added weekly.</p>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+
+  <section id="apps" class="section">
+    <h2>Explore More Apps</h2>
+    <p>Discover more wellness tools from MediStress™.</p>
+    <button onclick="goHome()">Back</button>
+  </section>
+
+  <footer>© 2025 MediStress™</footer>
+</div>
+
+<script>
+let breathing = false;
+
+function openSection(id) {
+  document.getElementById("home").style.display = "none";
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function goHome() {
+  document.getElementById("home").style.display = "flex";
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  breathing = false;
+}
+
+function toggleBreathing() {
+  const circle = document.getElementById("breathing-circle");
+  const text = document.getElementById("breathing-text");
+  breathing = !breathing;
+  if (breathing) {
+    text.textContent = "Breathe In...";
+    animateBreathing(circle, text);
+  } else {
+    text.textContent = "Click 'Start' to begin.";
+    circle.style.transform = "scale(1)";
+  }
+}
+
+function animateBreathing(circle, text) {
+  if (!breathing) return;
+  circle.style.transform = "scale(1.4)";
+  text.textContent = "Breathe In...";
+  setTimeout(() => {
+    circle.style.transform = "scale(1)";
+    text.textContent = "Breathe Out...";
+    if (breathing) setTimeout(() => animateBreathing(circle, text), 4000);
+  }, 4000);
+}
+</script>
+
+
+
+</body>
+</html>
+
